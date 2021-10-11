@@ -1,0 +1,43 @@
+<div *ngIf="IsAuthendicated()">
+<button class="btn btn-primary" (click)="get_api()">Get Employee</button>
+<div class="card" *ngFor="let item of employee">
+<span>Id</span><span>{{item.id}}</span>
+<span>Name</span>{{item.name}}
+<span>Age</span>{{item.age}}
+<button class="btn btn-danger" (click)="getid_api(item.id)">Get Single</button>
+<button class="btn btn-danger" (click)="delete_api(item.id)">Delete</button>
+</div>
+<br>
+<div *ngIf="flag">
+    <h1>Get Employee</h1><br>
+    Id:{{user.id}}<br>
+    Name:{{user.name}}<br>
+    Age:{{user.age}}
+</div>
+<br>
+<div>
+    <h1>Post Employee</h1><br>
+    <form #EmployeeForm="ngForm" (ngSubmit)="post_api(EmployeeForm.value)">
+        <label for="name">Name</label><br>
+        <input type="text" id="Name" name="name" [(ngModel)]="postuser.name"><br>
+        <label for="age">Age</label><br>
+        <input type="number" id="Age" name="age" [(ngModel)]="postuser.age"><br>
+        <input type="submit" value="submit">
+    </form>
+</div>
+<br>
+<div>
+    <h1>Put Employee</h1><br>
+    <form #PutEmployeeForm="ngForm" (ngSubmit)="put_api(PutEmployeeForm.value,user.id)">
+        <label for="id">Id</label>
+        <input type="number" id="id" name="id" [(ngModel)]="user.id"><br>
+        <label for="Name">Name</label><br>
+        <input type="text" id="Name" name="name" [(ngModel)]="user.name"><br>
+        <label for="Age">Age</label><br>
+        <input type="text" id="Age" name="age" [(ngModel)]="user.age"><br>
+        <input type="submit" value="submit">
+    </form>
+</div>
+<button (click)="Move()">Move</button>
+<button (click)="Logout()">Logout</button>
+</div>

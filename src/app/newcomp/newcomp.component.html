@@ -1,0 +1,10 @@
+<div>
+    <h1>Login</h1><br>
+    <form #LoginForm="ngForm" (ngSubmit)="post_api(LoginForm.value)">
+        <label for="Name">Name</label><br>
+        <input type="text" id="Name" name="AdminUserName" [(ngModel)]="user.name"><br>
+        <label for="Password">Password</label><br>
+        <input type="text" id="Password" name="AdminPassword" [(ngModel)]="user.password"><br>
+        <input type="submit" value="submit">
+    </form>
+</div>
